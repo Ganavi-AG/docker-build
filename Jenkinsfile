@@ -4,7 +4,8 @@
         stages {
             stage('Checkout') {
                 steps {
-                    https://github.com/Ganavi-AG/maven-project.git
+                    git
+                    'https://github.com/Ganavi-AG/maven-project.git'
                 }
             }
 

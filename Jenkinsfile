@@ -26,8 +26,6 @@
                     sh 'docker build -t ganaviag/jenkins .'
                     }
                 }
-            }
-
-            
+            }      
         }
-    }
+    

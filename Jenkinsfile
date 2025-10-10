@@ -23,7 +23,7 @@
 
             stage('Build Docker Image') {
                 steps {
-                    sh 'docker build -t ganaviag/jenkins
+                    sh 'docker build -t ganaviag/jenkins .'
                     }
                 }
             }

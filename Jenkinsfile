@@ -28,7 +28,7 @@
         stage('Build Docker Image') {
             steps {
                
-                  sh "docker images | grep $IMAGE_NAME'
+                  sh "docker images | grep $IMAGE_NAME"
                 }
             }
         }

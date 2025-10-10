@@ -10,8 +10,7 @@
             stage('Maven Build (inside Docker)') {
                 agent {
                      dockerContainer {
-                        image 'maven:3.8.7' 
-                        args '-v $HOME/.m2:/root/.m2' 
+                        image 'maven:3.8.7'  args '-v $HOME/.m2:/root/.m2' 
                     }
                 }
                   steps {

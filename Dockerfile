@@ -1,4 +1,4 @@
-FROM maven:3.8.6-eclipse-temurin
+FROM maven:3.8.6-eclipse-temurin-17
 WORKDIR /app
 copy Downloads/maven_calculator_app-main ./app
 RUN mvn clean package

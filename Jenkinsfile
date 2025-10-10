@@ -1,9 +1,6 @@
    pipeline {
     agent {
-        docker {
-            image 'maven:3.8.6-openjdk-17'
-            args '-v /root/.m2:/root/.m2' // optional: cache Maven dependencies
-        }
+        docker { image 'maven:3.8.6-openjdk-17' args '-v /root/.m2:/root/.m2' }
     }
 
            stages {

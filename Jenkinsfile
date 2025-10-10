@@ -1,11 +1,11 @@
    pipeline {
-    agent {
-        docker {
-           image 'maven:3.8.6-eclipse-temurin-17'
-           args '-v /root/.m2:/root/.m2'
-        }
-    }
+    agent any
 
+      environment {
+         IMAGE_NAME = "myimage"
+         MAVEN_IMAGE = "maven : 3.8.6-eclipse-temurin-17"
+      }
+        
            stages {
                 stage('Checkout') {
                       steps {
@@ -14,17 +14,28 @@
            }
 
         stage('Build with Maven') {
+           agent{
+              docker{
+                 image "${MAVEN_IMAGE}"
+                 args '-v /root/.m2:/root/.m2'
+              }
+           }
             steps {
-                sh 'mvn clean install -DskipTests -B'
+                sh 'mvn clean install -DskipTests'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                script {
-                    sh "docker build -t my_image ."
+               
+                  sh "docker images | grep $IMAGE_NAME'
                 }
             }
         }
+      post{
+         always {
+            echo "pipeline finished"
+           }
+         }
      }
    }

@@ -9,7 +9,7 @@
            stages {
                 stage('Checkout') {
                       steps {
-                           git  'https://github.com/Ganavi-AG/maven-project.git'
+                           git url : 'https://github.com/Ganavi-AG/maven-project.git' , branch:'main'
                  }
            }
 

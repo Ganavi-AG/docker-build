@@ -3,16 +3,14 @@
 
         stages {
             stage('Checkout') {
-                steps {
-                    git
-                      'https://github.com/Ganavi-AG/maven-project.git'
+                steps {  git  'https://github.com/Ganavi-AG/maven-project.git'
                       }
                }
 
             stage('Maven Build (inside Docker)') {
                 agent {
                      docker {
-                        image 'maven:3.8.7-openjdk-17-slim' 
+                        image 'maven:3.8.7' 
                         args '-v $HOME/.m2:/root/.m2' 
                     }
                 }

@@ -17,7 +17,7 @@
                          checkout([
                             $class: 'gitSCM',
                             branches : [[name : '*/main']],
-                           userRemoteConfigs : [[url : 'https://github.com/Ganavi-AG/maven-project.git']] ]
+                           userRemoteConfigs : [[url : 'https://github.com/Ganavi-AG/maven-project.git']] ])
                       }
                }
 

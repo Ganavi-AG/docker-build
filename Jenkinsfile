@@ -14,10 +14,7 @@
            }
                 stage('Checkout') {
                       steps {
-                         checkout([
-                            $class: 'gitSCM',
-                            branches : [[name : '*/main']],
-                           userRemoteConfigs : [[url : 'https://github.com/Ganavi-AG/maven-project.git']] ])
+                         git branch: 'main' , url : 'https://github.com/Ganavi-AG/maven-project.git'
                       }
                }
 

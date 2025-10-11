@@ -6,7 +6,7 @@
          MAVEN_IMAGE = "maven : 3.8.6-eclipse-temurin-17"
       }
         
-           stages {
+         stages {
               stage('Cleanup'){
               steps{
                  cleanWs()

@@ -14,7 +14,7 @@
            }
                 stage('Checkout') {
                       steps {
-                         git branch: 'main' , url : 'https://github.com/Ganavi-AG/maven-project.git'
+                         git branch: 'main' , url : 'https://github.com/Ganavi-AG/maven_docker.git'
                       }
                }
 

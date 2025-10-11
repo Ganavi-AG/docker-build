@@ -7,9 +7,17 @@
       }
         
            stages {
+              stage('Cleanup'){
+              steps{
+                 cleanWs()
+              }
+           }
                 stage('Checkout') {
                       steps {
-                           git url : 'https://github.com/Ganavi-AG/maven-project.git' , branch:'main'
+                         checkout([
+                            $class: 'gitSCM',
+                            branches : [[name : '*/main]],
+                           userRemoteConfigs : [[url : 'https://github.com/Ganavi-AG/maven-project.git']] 
                  }
            }
 
@@ -24,17 +32,25 @@
                 sh 'mvn clean install -DskipTests'
             }
         }
+           
 
         stage('Build Docker Image') {
             steps {
-               
-                  sh "docker images | grep $IMAGE_NAME"
+                   sh 'docker build -t ${IMAGE_NAME} .'
+                  sh 'docker images | grep $IMAGE_NAME'
                 }
             }
+                                       
         }
       post{
          always {
             echo "pipeline finished"
+           }
+         success {
+            echo "build complited succesfully!"
+         }
+         failure {
+            echo"build failed"
            }
          }
      }
